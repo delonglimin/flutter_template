@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
-
-import 'package:flutter/services.dart';
 
 /// 设备屏幕高度
 double getDeviceHeight(BuildContext context) {
@@ -22,5 +19,3 @@ double getDeviceTopHeight(BuildContext context) {
 double getDeviceBottomHeight(BuildContext context) {
   return MediaQuery.of(context).padding.bottom;
 }
-
-
