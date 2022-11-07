@@ -11,7 +11,9 @@ class IndexPage extends GetView<IndexController> {
       body: Container(
         child: PageView(
           controller: controller.paegController,
-          children: controller.iconsMap.keys.map((e) => Text(e)).toList(),
+          children: controller.iconsMap.keys.map((e) => Center(
+            child: Text(e),
+          )).toList(),
           onPageChanged: (value) => controller.position.value = value,
         ),
       ),

@@ -7,15 +7,6 @@ import 'package:flutter_getx_template/config.dart';
 import 'package:flutter_getx_template/global.dart';
 import 'package:flutter_getx_template/utils/utils.dart';
 
-/*
-  * http 操作类
-  *
-  * 手册
-  * https://github.com/flutterchina/dio/blob/master/README-ZH.md
-  *
-  * 从3.x升级到 4.x
-  * https://github.com/flutterchina/dio/blob/master/migration_to_4.x.md
-*/
 class Request {
   static Request _instance = Request._internal();
   factory Request() => _instance;
