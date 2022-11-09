@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_getx_template/config.dart';
+import 'package:flutter_getx_template/common/values/config.dart';
 import 'package:flutter_getx_template/global.dart';
 import 'package:flutter_getx_template/utils/utils.dart';
 

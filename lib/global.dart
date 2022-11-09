@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/common/values/values.dart';
 import 'package:flutter_getx_template/pages/login/login_model.dart';
-import 'package:flutter_getx_template/utils/utils.dart';
+import 'package:flutter_getx_template/utils/index.dart';
 
 /// 全局配置
 class Global {
