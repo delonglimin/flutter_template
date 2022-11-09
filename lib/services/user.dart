@@ -1,5 +1,5 @@
 import 'package:flutter_getx_template/pages/login/login_model.dart';
-import 'package:flutter_getx_template/utils/utils.dart';
+import 'package:flutter_getx_template/utils/index.dart';
 
 /// 用户
 class UserAPI {

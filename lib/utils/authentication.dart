@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:flutter_getx_template/common/values/values.dart';
+import 'package:flutter_getx_template/common/values/index.dart';
 import 'package:flutter_getx_template/global.dart';
-import 'package:flutter_getx_template/utils/utils.dart';
+import 'package:flutter_getx_template/utils/index.dart';
 import 'package:get/get.dart';
 
 /// 检查是否有 token
