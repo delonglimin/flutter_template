@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter_getx_template/common/values/index.dart';
-import 'package:flutter_getx_template/global.dart';
 import 'package:flutter_getx_template/utils/index.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +12,6 @@ Future<bool> isAuthenticated() async {
 /// 删除缓存token
 Future deleteAuthentication() async {
   await LoacalStorage().remove(STORAGE_USER_PROFILE_KEY);
-  Global.profile = null;
 }
 
 /// 重新登录

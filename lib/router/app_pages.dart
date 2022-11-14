@@ -1,7 +1,5 @@
 import 'package:flutter_getx_template/pages/Index/Index_view.dart';
 import 'package:flutter_getx_template/pages/Index/index_binding.dart';
-import 'package:flutter_getx_template/pages/home/home.binding.dart';
-import 'package:flutter_getx_template/pages/home/home_view.dart';
 import 'package:flutter_getx_template/pages/login/login_binding.dart';
 import 'package:flutter_getx_template/pages/login/login_view.dart';
 import 'package:flutter_getx_template/pages/notfound/notfound_view.dart';
@@ -28,11 +26,6 @@ class AppPages {
       name: AppRoutes.Login,
       page: () => LoginPage(),
       binding: LoginBinding(),
-    ),
-    GetPage(
-      name: AppRoutes.Home,
-      page: () => HomePage(),
-      binding: HomeBinding(),
     ),
   ];
 

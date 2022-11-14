@@ -20,11 +20,11 @@ class SplashPage extends GetView<SplashController> {
         ),
         Positioned(
           right: 10,
-          top: 10,
+          top: 30,
           child: TimerTag(
               time: controller.timerNum,
               onEnd: () {
-                Get.offNamed(AppRoutes.Index);
+                Get.offNamed(AppRoutes.Login);
               }),
         )
       ]),

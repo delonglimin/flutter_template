@@ -1,16 +1,18 @@
-import 'package:flutter_getx_template/pages/login/login_model.dart';
+import 'package:flutter_getx_template/model/page_model.dart';
+import 'package:flutter_getx_template/model/article_model.dart';
 import 'package:flutter_getx_template/utils/index.dart';
 
 /// 用户
 class UserAPI {
-  /// 登录
-  static Future<UserLoginResponseModel> login({
-    required Map params,
-  }) async {
-    var response = await Request().post(
-      '/login/',
-      params: params,
-    );
-    return UserLoginResponseModel.fromJson(response['data']);
+  static Future<PageModel> getArticleList(
+      {Map<String, dynamic>? params}) {
+    return Request()
+        .post(
+          '/agreement/getAgreementList',
+          params: params,
+        )
+        .then((res) {
+          return PageModel.fromMap(res);
+        });
   }
 }

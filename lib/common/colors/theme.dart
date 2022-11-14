@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/common/colors/colors.dart';
 
 ///白天模式
-ThemeData lightTheme = ThemeData.light().copyWith(
-  primaryColor: Colors.red,
-  backgroundColor: Colors.white,
+ThemeData oldLightThemeData = ThemeData.light();
+
+
+ThemeData lightTheme = oldLightThemeData.copyWith(
+
+   textTheme: oldLightThemeData.textTheme.copyWith(
+    bodyText2:oldLightThemeData.textTheme.bodyText2?.copyWith(color: AppColors.primaryColor)
+  ),
+ 
+ 
+  primaryColor: AppColors.primaryColor,
+  backgroundColor: AppColors.primaryBackground,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      selectedItemColor: Colors.red, unselectedItemColor: Colors.grey),
+      selectedItemColor: AppColors.primaryColor, unselectedItemColor: AppColors.primaryGreyText),
 );
 
 ///夜间模式

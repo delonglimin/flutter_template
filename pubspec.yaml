@@ -39,8 +39,8 @@ dependencies:
 
   # http
   dio: ^4.0.0
-  cookie_jar: ^3.0.1
-  dio_cookie_manager: ^2.0.0
+  # cookie_jar: ^3.0.1
+  # dio_cookie_manager: ^2.0.0
 
   # storage + cache
   shared_preferences: ^2.0.6
@@ -80,7 +80,7 @@ dependencies:
   chewie: ^1.3.5
 
   # 打开url
-  url_launcher: ^6.0.12
+  # url_launcher: ^6.0.12
 
   # 异常上报
   # sentry_flutter: ^6.0.1

@@ -1,6 +1,6 @@
 // 开发环境
 const ENV = 'DEV';
-const SERVER_HOST_DEV = 'http://10.1.1.109:7003/zhaopin-mp';
+const SERVER_HOST_DEV = 'http://10.1.1.108:7008';
 
 // 生产环境
 // 生产环境地址禁止随意修改！！！
