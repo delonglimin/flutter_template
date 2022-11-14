@@ -38,9 +38,7 @@ class LoginController extends GetxController {
   @override
   void onClose() {}
 
-  increment(){
-    count.value++;
-    update();
+  increment() => count.value++;
 }
 
 
