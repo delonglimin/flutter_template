@@ -20,7 +20,7 @@ class LoginPage extends GetView<LoginController> {
               },
               child: Text('login'.tr),
             ),
-             TextButton(
+            TextButton(
               onPressed: () {
                 controller.getList();
               },
@@ -44,7 +44,20 @@ class LoginPage extends GetView<LoginController> {
                   "测试数据状态",
                   style: TextStyle(color: Theme.of(context).primaryColor),
                 )),
-            Obx(() => Text("${controller.count}"))
+            Obx(() => Text("${controller.count}")),
+            Container(
+                height: 200,
+                padding: EdgeInsets.all(0),
+                child: Obx(() => ListView.builder(
+                  padding: EdgeInsets.zero,
+                  controller: controller.scrollController,
+                    scrollDirection: Axis.vertical,
+                    itemCount: controller.listData.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title:Text('${controller.listData[index].createTime}'),
+                      );
+                    })))
           ]),
     ));
   }

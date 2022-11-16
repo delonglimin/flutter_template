@@ -1,12 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:flutter_getx_template/common/values/config.dart';
 import 'package:flutter_getx_template/model/response_model.dart';
+import 'package:flutter_getx_template/utils/common_util.dart';
 
 class Request {
   static Request _instance = Request._internal();
@@ -38,19 +37,19 @@ class Request {
     return headers;
   }
 
-  Future post(String path,
-      {Map<String, dynamic>? params, Options? options}) async {
+  Future post(String path, {Map<String, dynamic>? params, Options? options,bool showLoad=true}) async {
 
     Options requestOptions = options ?? Options();
     requestOptions = requestOptions.copyWith(headers: getAuthorizationHeader());
-    
+    if(showLoad){
+      showLoading();
+    }
     return dio.post(path, data: params, options: requestOptions).then((value) {
-      
       ResponseModel res = ResponseModel.fromMap(value.data);
       return processResponse(res);
     }).catchError((onError){
       return Future.error(onError);
-    });
+    }).whenComplete(() => hideLoading());
   }
 
   processResponse(ResponseModel value) {

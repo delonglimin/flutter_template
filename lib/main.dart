@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
           locale: TranslationService.locale,
           fallbackLocale: TranslationService.fallbackLocale,
           translations: TranslationService(),
+          defaultTransition: Transition.rightToLeft,
           theme: lightTheme,
           darkTheme: darkTheme,),
     );
