@@ -28,7 +28,7 @@ class PageModel<T> {
   factory PageModel.fromMap(Map<String, dynamic> map) {
     return PageModel<T>(
       currentPage: map['currentPage'] != null ? map['currentPage'] as int : null,
-      rows: map['rows'] != null ? map['rows'] as List<T>: null,
+      rows: map['rows'] != null ? map['rows']: null,
       total: map['total'] != null ? map['total'] as int : null,
     );
   }

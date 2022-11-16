@@ -19,16 +19,12 @@ class LoginController extends GetxController {
   void getList() {
     showLoading('loading...');
     UserAPI.getArticleList(params: {'type': 3}).then((value) {
-      List<ArticleModel>? l = value.rows?.map((item) {
-        return ArticleModel.fromMap(item);
-      }).toList();
-      print(l);
+      print(value.rows.runtimeType);
     }).whenComplete(() => hideLoading());
   }
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
   }
 

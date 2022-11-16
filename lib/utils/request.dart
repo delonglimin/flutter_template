@@ -45,12 +45,20 @@ class Request {
     requestOptions = requestOptions.copyWith(headers: getAuthorizationHeader());
     
     return dio.post(path, data: params, options: requestOptions).then((value) {
+      
       ResponseModel res = ResponseModel.fromMap(value.data);
-      return res.data;
+      return processResponse(res);
+    }).catchError((onError){
+      return Future.error(onError);
     });
   }
 
-  processResponse(Response value) {}
+  processResponse(ResponseModel value) {
+    if(value.code != 200){
+      return Future.error(value.message??'网络请求出错');
+    }
+    return Future.value(value.data);
+  }
 }
 
 //logIntercepter
