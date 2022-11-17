@@ -22,15 +22,14 @@ class LoginController extends GetxController {
 
   void getList() {
     UserAPI.getArticleList(params: {'type': 3}).then((pageData) {
-      listData
-          .addAll(pageData.rows!.map((e) => ArticleModel.fromMap(e)).toList());
+      print(pageData.rows);
     });
   }
 
   @override
   void onInit() {
     scrollController.addListener(() {
-      print( scrollController.position.pixels);
+      print(scrollController.position.pixels);
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         print('loading');
