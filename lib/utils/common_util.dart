@@ -9,3 +9,8 @@ void showLoading({String title = 'loading'}) {
 void hideLoading() {
   EasyLoading.dismiss();
 }
+void mylog(Object? info){
+  print('s======================================');
+  print(info);
+   print('======================================e');
+}

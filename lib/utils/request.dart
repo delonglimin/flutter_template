@@ -27,6 +27,7 @@ class Request {
     );
 
     dio = new Dio(options);
+    dio.interceptors.add(logIntercepter());
   }
 
   /// 读取token
@@ -44,6 +45,7 @@ class Request {
     if(showLoad){
       showLoading();
     }
+
     return dio.post(path, data: params, options: requestOptions).then((value) {
       ResponseModel res = ResponseModel.fromMap(value.data);
       return processResponse(res);
@@ -61,3 +63,24 @@ class Request {
 }
 
 //logIntercepter
+
+class logIntercepter extends Interceptor{
+  
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    mylog(options.data);
+    super.onRequest(options, handler);
+  }
+
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    mylog(response.data);
+    super.onResponse(response, handler);
+  }
+
+  @override
+  void onError(DioError err, ErrorInterceptorHandler handler) {
+    mylog(err);
+    super.onError(err, handler);
+  }
+}
