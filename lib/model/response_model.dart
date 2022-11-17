@@ -24,14 +24,6 @@ class ResponseModel {
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'code': code,
-      'message': message,
-      'data': data,
-    };
-  }
-
   factory ResponseModel.fromMap(Map<String, dynamic> map) {
     return ResponseModel(
       code: map['code'] != null ? map['code'] as int : null,
@@ -39,8 +31,6 @@ class ResponseModel {
       data: map['data'] as dynamic,
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   factory ResponseModel.fromJson(String source) => ResponseModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
