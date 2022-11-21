@@ -54,6 +54,22 @@ class Request {
     }).whenComplete(() => hideLoading());
   }
 
+  Future get(String path, {Map<String, dynamic>? params, Options? options,bool showLoad=true}) async {
+
+    Options requestOptions = options ?? Options();
+    requestOptions = requestOptions.copyWith(headers: getAuthorizationHeader());
+    if(showLoad){
+      showLoading();
+    }
+
+    return dio.get(path, queryParameters: params, options: requestOptions).then((value) {
+      ResponseModel res = ResponseModel.fromMap(value.data);
+      return processResponse(res);
+    }).catchError((onError){
+      return Future.error(onError);
+    }).whenComplete(() => hideLoading());
+  }
+
   processResponse(ResponseModel value) {
     if(value.code != 200){
       return Future.error(value.message??'网络请求出错');
