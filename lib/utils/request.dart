@@ -27,7 +27,7 @@ class Request {
     );
 
     dio = new Dio(options);
-    dio.interceptors.add(logIntercepter());
+    dio.interceptors.add(LogIntercepter());
   }
 
   /// 读取token
@@ -72,6 +72,7 @@ class Request {
 
   processResponse(ResponseModel value) {
     if(value.code != 200){
+      showToast(value.message??'网络请求出错');
       return Future.error(value.message??'网络请求出错');
     }
     return Future.value(value.data);
@@ -80,7 +81,7 @@ class Request {
 
 //logIntercepter
 
-class logIntercepter extends Interceptor{
+class LogIntercepter extends Interceptor{
   
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
