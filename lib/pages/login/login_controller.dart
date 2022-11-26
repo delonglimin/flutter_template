@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/model/article_model.dart';
-import 'package:flutter_getx_template/model/page_model.dart';
 import 'package:flutter_getx_template/router/app_pages.dart';
 import 'package:flutter_getx_template/services/user.dart';
 import 'package:flutter_getx_template/utils/common_util.dart';
@@ -22,7 +21,7 @@ class LoginController extends GetxController {
 
   void getList() {
     UserAPI.getArticleList(params: {'type': 3}).then((pageData) {
-      print(pageData.rows);
+      listData.addAll(pageData.rows!);
     });
   }
 

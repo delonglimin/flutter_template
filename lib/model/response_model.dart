@@ -10,12 +10,11 @@ class ResponseModel {
     this.message,
     required this.data,
   });
-  
 
   ResponseModel copyWith({
     int? code,
     String? message,
-    dynamic? data,
+    dynamic data,
   }) {
     return ResponseModel(
       code: code ?? this.code,
@@ -32,5 +31,6 @@ class ResponseModel {
     );
   }
 
-  factory ResponseModel.fromJson(String source) => ResponseModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory ResponseModel.fromJson(String source) =>
+      ResponseModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

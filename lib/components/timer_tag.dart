@@ -13,11 +13,10 @@ class TimerTag extends StatefulWidget {
 
 class _TimerTagState extends State<TimerTag> {
   int _currentTime = 0;
-  late Timer _timer;
   @override
   void initState() {
     _currentTime = widget.time;
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         if (_currentTime <= 0) {
           timer.cancel();
