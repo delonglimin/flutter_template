@@ -22,6 +22,8 @@ class LoginController extends GetxController {
   void getList() {
     UserAPI.getArticleList(params: {'type': 3}).then((pageData) {
       listData.addAll(pageData.rows!);
+    }).catchError((error) {
+      print(error);
     });
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/common/values/index.dart';
 import 'package:flutter_getx_template/utils/index.dart';
+import 'package:flutter_getx_template/utils/network_manager.dart';
 
 import 'utils/push_manager.dart';
 
@@ -23,7 +24,11 @@ class Global {
     Request();
     // 本地存储初始化
     await LoacalStorage.init();
+    // 推送服务
     await PushManager.setup();
+
+    // 网络监听
+    NetworkManager.listenNetworkState();
 
     isFirstOpen = !LoacalStorage().getBool(STORAGE_DEVICE_ALREADY_OPEN_KEY);
     if (isFirstOpen) {

@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 
 import 'package:flutter_getx_template/common/values/config.dart';
 import 'package:flutter_getx_template/model/response_model.dart';
 import 'package:flutter_getx_template/utils/common_util.dart';
+import 'package:flutter_getx_template/utils/network_manager.dart';
 
 class Request {
   static Request _instance = Request._internal();
@@ -38,42 +40,57 @@ class Request {
     return headers;
   }
 
-  Future post(String path, {Map<String, dynamic>? params, Options? options,bool showLoad=true}) async {
-
+  Future post(String path,
+      {Map<String, dynamic>? params,
+      Options? options,
+      bool showLoad = true}) async {
     Options requestOptions = options ?? Options();
     requestOptions = requestOptions.copyWith(headers: getAuthorizationHeader());
-    if(showLoad){
+    if (NetworkManager.networkState == ConnectivityResult.none) {
+      showToast('网络未连接');
+      return Future.error('网络未连接');
+    }
+    if (showLoad) {
       showLoading();
     }
 
     return dio.post(path, data: params, options: requestOptions).then((value) {
       ResponseModel res = ResponseModel.fromMap(value.data);
       return processResponse(res);
-    }).catchError((onError){
+    }).catchError((onError) {
       return Future.error(onError);
     }).whenComplete(() => hideLoading());
   }
 
-  Future get(String path, {Map<String, dynamic>? params, Options? options,bool showLoad=true}) async {
-
+  Future get(String path,
+      {Map<String, dynamic>? params,
+      Options? options,
+      bool showLoad = true}) async {
     Options requestOptions = options ?? Options();
     requestOptions = requestOptions.copyWith(headers: getAuthorizationHeader());
-    if(showLoad){
+    if (NetworkManager.networkState == ConnectivityResult.none) {
+      showToast('网络未连接');
+      return Future.error('网络未连接');
+    }
+    if (showLoad) {
       showLoading();
     }
 
-    return dio.get(path, queryParameters: params, options: requestOptions).then((value) {
+    return dio
+        .get(path, queryParameters: params, options: requestOptions)
+        .then((value) {
       ResponseModel res = ResponseModel.fromMap(value.data);
       return processResponse(res);
-    }).catchError((onError){
+    }).catchError((onError) {
+      showToast(onError.toString());
       return Future.error(onError);
     }).whenComplete(() => hideLoading());
   }
 
   processResponse(ResponseModel value) {
-    if(value.code != 200){
-      showToast(value.message??'网络请求出错');
-      return Future.error(value.message??'网络请求出错');
+    if (value.code != 200) {
+      showToast(value.message ?? '网络请求出错');
+      return Future.error(value.message ?? '网络请求出错');
     }
     return Future.value(value.data);
   }
@@ -81,8 +98,7 @@ class Request {
 
 //logIntercepter
 
-class LogIntercepter extends Interceptor{
-  
+class LogIntercepter extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     mylog(options.data);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/pages/login/login_controller.dart';
+import 'package:flutter_getx_template/utils/update_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +20,12 @@ class LoginPage extends GetView<LoginController> {
                 controller.doLogin();
               },
               child: Text('login'.tr),
+            ),
+            TextButton(
+              onPressed: () {
+                UpdateManager.checkUpdate();
+              },
+              child: Text('checkupdate'),
             ),
             TextButton(
               onPressed: () {
@@ -49,13 +56,13 @@ class LoginPage extends GetView<LoginController> {
                 height: 200,
                 padding: EdgeInsets.all(0),
                 child: Obx(() => ListView.builder(
-                  padding: EdgeInsets.zero,
-                  controller: controller.scrollController,
+                    padding: EdgeInsets.zero,
+                    controller: controller.scrollController,
                     scrollDirection: Axis.vertical,
                     itemCount: controller.listData.length,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title:Text('${controller.listData[index].createTime}'),
+                        title: Text('${controller.listData[index].createTime}'),
                       );
                     })))
           ]),
