@@ -9,19 +9,6 @@ class PageModel<T> {
   });
   
 
-  PageModel<T> copyWith({
-    int? currentPage,
-    List<T>? rows,
-    int? total,
-  }) {
-    return PageModel<T>(
-      currentPage: currentPage ?? this.currentPage,
-      rows: rows ?? this.rows,
-      total: total ?? this.total,
-    );
-  }
-
-
   factory PageModel.fromMap(Map<String, dynamic> map,T Function(dynamic json) fromJsonT) {
     return PageModel<T>(
       currentPage: map['currentPage'] != null ? map['currentPage'] as int : null,

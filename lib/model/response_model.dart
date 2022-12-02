@@ -11,17 +11,6 @@ class ResponseModel {
     required this.data,
   });
 
-  ResponseModel copyWith({
-    int? code,
-    String? message,
-    dynamic data,
-  }) {
-    return ResponseModel(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-    );
-  }
 
   factory ResponseModel.fromMap(Map<String, dynamic> map) {
     return ResponseModel(
