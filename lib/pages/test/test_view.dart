@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_template/pages/login/login_controller.dart';
+import 'package:flutter_getx_template/pages/test/test_controller.dart';
 import 'package:flutter_getx_template/utils/update_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

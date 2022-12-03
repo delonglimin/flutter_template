@@ -1,7 +1,7 @@
 import 'package:flutter_getx_template/pages/Index/Index_view.dart';
 import 'package:flutter_getx_template/pages/Index/index_binding.dart';
-import 'package:flutter_getx_template/pages/login/login_binding.dart';
-import 'package:flutter_getx_template/pages/login/login_view.dart';
+import 'package:flutter_getx_template/pages/test/test_binding.dart';
+import 'package:flutter_getx_template/pages/test/test_view.dart';
 import 'package:flutter_getx_template/pages/notfound/notfound_view.dart';
 import 'package:flutter_getx_template/pages/splash/spalsh_view.dart';
 import 'package:flutter_getx_template/pages/splash/splash_binding.dart';

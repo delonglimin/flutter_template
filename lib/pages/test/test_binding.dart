@@ -1,4 +1,4 @@
-import 'package:flutter_getx_template/pages/login/login_controller.dart';
+import 'package:flutter_getx_template/pages/test/test_controller.dart';
 import 'package:get/get.dart';
 
 class LoginBinding extends Bindings {

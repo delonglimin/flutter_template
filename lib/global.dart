@@ -4,6 +4,7 @@ import 'package:flutter_getx_template/utils/index.dart';
 import 'package:flutter_getx_template/utils/network_manager.dart';
 
 import 'utils/push_manager.dart';
+import 'package:get/get.dart';
 
 /// 全局配置
 class Global {
