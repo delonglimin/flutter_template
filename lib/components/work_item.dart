@@ -1,10 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/common/colors/colors.dart';
 import 'package:flutter_getx_template/common/colors/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'IconText.dart';
+import 'icon_text.dart';
 
 class WorkItem extends StatefulWidget {
   const WorkItem({Key? key}) : super(key: key);

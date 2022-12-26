@@ -5,11 +5,13 @@ import 'package:flutter_getx_template/pages/test/test_view.dart';
 import 'package:flutter_getx_template/pages/notfound/notfound_view.dart';
 import 'package:flutter_getx_template/pages/splash/spalsh_view.dart';
 import 'package:flutter_getx_template/pages/splash/splash_binding.dart';
+import 'package:flutter_getx_template/pages/work/worklist_binding.dart';
+import 'package:flutter_getx_template/pages/work/worklist_view.dart';
 import 'package:get/get.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = AppRoutes.Splash;
+  static const INITIAL = AppRoutes.Worklist;
 
   static final routes = [
     GetPage(
@@ -23,9 +25,14 @@ class AppPages {
       binding: IndexBinding(),
     ),
     GetPage(
-      name: AppRoutes.Login,
-      page: () => LoginPage(),
-      binding: LoginBinding(),
+      name: AppRoutes.Test,
+      page: () => TestPage(),
+      binding: TestBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Worklist,
+      page: () => WorklistPage(),
+      binding: WorklistBinding(),
     ),
   ];
 
@@ -33,5 +40,4 @@ class AppPages {
     name: AppRoutes.NotFound,
     page: () => NotfoundPage(),
   );
-
 }

@@ -5,13 +5,14 @@ import 'package:flutter_getx_template/services/user.dart';
 import 'package:flutter_getx_template/utils/common_util.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class TestController extends GetxController {
   final count = 0.obs;
   final listData = <ArticleModel>[].obs;
 
   ScrollController scrollController = ScrollController();
 
   void doLogin() {
+    showLoading();
     Future.delayed(Duration(seconds: 2)).then((value) {
       hideLoading();
       showToast('success');
@@ -45,5 +46,5 @@ class LoginController extends GetxController {
   @override
   void onClose() {}
 
-  increment() => count.value++;
+  increment() => count.value+=50;
 }

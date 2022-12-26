@@ -24,7 +24,7 @@ class SplashPage extends GetView<SplashController> {
           child: TimerTag(
               time: controller.timerNum,
               onEnd: () {
-                Get.offNamed(AppRoutes.Login);
+                Get.offNamed(AppRoutes.Test);
               }),
         )
       ]),

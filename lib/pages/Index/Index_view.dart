@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/pages/Index/Index_controller.dart';
+import 'package:flutter_getx_template/router/app_pages.dart';
 import 'package:get/get.dart';
 
 class IndexPage extends GetView<IndexController> {
@@ -11,9 +12,15 @@ class IndexPage extends GetView<IndexController> {
       body: Container(
         child: PageView(
           controller: controller.paegController,
-          children: controller.iconsMap.keys.map((e) => Center(
-            child: Text(e),
-          )).toList(),
+          children: controller.iconsMap.keys
+              .map((e) => Center(
+                    child: TextButton(
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.Test);
+                        },
+                        child: Text(e)),
+                  ))
+              .toList(),
           onPageChanged: (value) => controller.position.value = value,
         ),
       ),
